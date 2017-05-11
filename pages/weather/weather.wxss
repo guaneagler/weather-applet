@@ -1,10 +1,4 @@
 /* pages/weather/weather.wxss */
-page {
-	height: 100%;
-	width: 100%;
-  background: #f4f4f4;
-  font-size: 17pt;
-}
 .city-input-section {
   margin: 20rpx 15rpx;
   width: 100%;
@@ -22,6 +16,7 @@ page {
   width: 100%;
 }
 .input-city {
+  font-size: 17pt;
 	height: 85rpx;
   background-color: white;
 }
