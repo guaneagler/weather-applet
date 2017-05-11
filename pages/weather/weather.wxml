@@ -1,0 +1,32 @@
+<!--pages/weather/weather.wxml-->
+<view class="weather-container">
+  <view class="city-input-section">
+    <view class="search-icon">
+      <image class="search-icon-image" mode="center" src="../../images/icons/search-icon.png"></image>
+    </view>
+    <view class="search-input">
+      <input style="color:{{color}}" class="input-city" focus="{{focus}}" type="text" confirm-type="search" placeholder="请输入城市" placeholder-class="input-placeholder" bindconfirm="searchWeatherByCity" value="{{cityValue}}"/>
+    </view>
+  </view>
+  <view class="weather">
+    <view class="today-weather">
+      <view class="city-time">
+        <text class="label-time">{{time}}</text>
+        <text class="label-city">{{city}}</text>
+      </view>
+      <view class="temperature"><text>{{temperature}}</text></view>
+      <view class="weather-icon">
+        <image class="weather-icon-image" mode="scaleToFill" src="{{imageSrc}}"></image>
+      </view>
+    </view>
+    <view class="future-weather-container">
+      <view class="future-weather" wx:for="{{futureWeather}}" wx:key="unique" wx:for-item="dayWeather">
+        <view class="week future-item">{{dayWeather.date}}</view>
+        <view class="future-temperature future-item"><text>{{dayWeather.temperature}}</text></view>
+        <view class="future-weather-icon future-item">
+          <image class="weather-icon-image" mode="scaleToFill" src="{{dayWeather.dayPictureUrl}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
