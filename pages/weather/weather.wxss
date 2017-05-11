@@ -37,7 +37,7 @@ page {
   justify-content: space-between;
   align-items: flex-end;
   height: 101rpx;
-  margin-bottom:36rpx;
+  margin:15rpx auto 35rpx;
 }
 .city-time {
   width: 100rpx;
@@ -67,4 +67,16 @@ page {
 .future-weather-icon-image {
   height: 35rpx;
   height: 45rpx;
+}
+.future-weather-container {
+  height: 0;
+  overflow: hidden;
+}
+.future-weather-show {
+  height: auto;
+}
+.today-show {
+  border-bottom:1rpx solid #888888;
+  padding-bottom:10rpx;
+  opacity: 0.6;
 }

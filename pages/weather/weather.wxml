@@ -9,7 +9,7 @@
     </view>
   </view>
   <view class="weather">
-    <view class="today-weather">
+    <view class="today-weather {{isOpen ? 'today-show' : ''}}" bindtap="toggleFuture">
       <view class="city-time">
         <text class="label-time">{{time}}</text>
         <text class="label-city">{{city}}</text>
@@ -19,7 +19,7 @@
       </view>
       <view class="temperature"><text>{{temperature}}</text></view>
     </view>
-    <view class="future-weather-container">
+    <view class="future-weather-container {{isOpen ? 'future-weather-show' : ''}}">
       <view class="future-weather-item" wx:for="{{futureWeather}}" wx:key="unique" wx:for-item="dayWeather">
         <view>{{dayWeather.date}}</view>
         <view>

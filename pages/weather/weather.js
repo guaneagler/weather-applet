@@ -8,11 +8,12 @@ Page({
     "time": "",
     "focus": "",
     "color": "black",
-    "time": '',
-    "futureWeather": ''
+    "time": "",
+    "futureWeather": "",
+    "isOpen": false
   },
   // Search weather by city name.
-  searchWeatherByCity:function(params) {
+  searchWeatherByCity: function(params) {
     var city = params.detail.value;
     var requestUrl = 'https://api.map.baidu.com/telematics/v3/weather?output=json&ak=5827531cbeea4bd3954710471a61eb32&location=' + city;
     var that = this;
@@ -22,7 +23,6 @@ Page({
           'content-type': 'application/json'
       },
       success: function(res) {
-        console.log(res.data);
         if (res.data.error == 0) {
           var responseData = res.data.results[0];
           var dressingIndex = responseData.index;
@@ -46,6 +46,12 @@ Page({
           })
         }
       }
+    })
+  },
+  toggleFuture: function(event) {
+    var isOpen = !this.data.isOpen;
+    this.setData({
+      "isOpen": isOpen
     })
   },
   onLoad:function(options){
