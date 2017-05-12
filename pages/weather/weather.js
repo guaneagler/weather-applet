@@ -1,16 +1,16 @@
 // pages/weather/weather.js
 Page({
   data:{
-    "city": "",
-    "cityValue": "",
-    "temperature": "",
-    "imageSrc": "",
-    "time": "",
-    "focus": "",
-    "color": "black",
-    "time": "",
-    "futureWeather": "",
-    "isOpen": false
+    city: '',
+    cityValue: '',
+    temperature: '',
+    imageSrc: '',
+    time: '',
+    focus: '',
+    color: 'black',
+    time: '',
+    futureWeather: '',
+    isOpen: false
   },
   // Search weather by city name.
   searchWeatherByCity: function(params) {
@@ -31,18 +31,18 @@ Page({
           var date = new Date();
           var time = (date.getHours() < 10 ? '0' : '') + date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
           that.setData({
-            "city": responseData.currentCity,
-            "temperature": todayWeather.temperature,
-            "imageSrc": todayWeather.dayPictureUrl,
-            "time": time,
-            "futureWeather": weatherData
+            city: responseData.currentCity,
+            temperature: todayWeather.temperature,
+            imageSrc: todayWeather.dayPictureUrl,
+            time: time,
+            futureWeather: weatherData
           });
         }
         else {
           console.log('error');
           that.setData({
-            "cityValue": "城市不存在!",
-            "color": "red"
+            cityValue: '城市不存在!',
+            color: 'red'
           })
         }
       }
@@ -51,7 +51,7 @@ Page({
   toggleFuture: function(event) {
     var isOpen = !this.data.isOpen;
     this.setData({
-      "isOpen": isOpen
+      isOpen: isOpen
     })
   },
   onLoad:function(options){
