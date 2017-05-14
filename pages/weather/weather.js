@@ -1,4 +1,19 @@
 // pages/weather/weather.js
+/**
+ * Storage user search city record with weight.
+ */
+function storageUserSearchCity(city) {
+  var cities = wx.getStorageSync('cities');
+  if (cities.hasOwnProperty(city)) {
+    cities[city]++;
+  }
+  else {
+    cities = {};
+    cities[city] = 1;
+  }
+  wx.setStorageSync('cities', cities);
+}
+
 Page({
   data:{
     city: '',
@@ -18,7 +33,7 @@ Page({
     var requestUrl = 'https://api.map.baidu.com/telematics/v3/weather?output=json&ak=5827531cbeea4bd3954710471a61eb32&location=' + city;
     var that = this;
     wx.request({
-      url: requestUrl, //仅为示例，并非真实的接口地址
+      url: requestUrl,
       header: {
           'content-type': 'application/json'
       },
@@ -37,6 +52,8 @@ Page({
             time: time,
             futureWeather: weatherData
           });
+          // Storage user search city records.
+          storageUserSearchCity(city);
         }
         else {
           console.log('error');
