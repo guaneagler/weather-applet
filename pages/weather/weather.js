@@ -7,8 +7,11 @@ function storageUserSearchCity(city) {
   if (cities.hasOwnProperty(city)) {
     cities[city]++;
   }
-  else {
+  else if (cities == ''){
     cities = {};
+    cities[city] = 1;
+  }
+  else {
     cities[city] = 1;
   }
   wx.setStorageSync('cities', cities);
