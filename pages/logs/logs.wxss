@@ -1,8 +1,8 @@
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
-}
 .log-item {
-  margin: 10rpx;
+	display:flex;
+	justify-content:space-around;
+	font-size:14pt;
+	margin:13rpx 25rpx;
+	width:100%;
+	color:#999999;
 }

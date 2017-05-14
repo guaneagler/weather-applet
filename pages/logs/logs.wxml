@@ -1,6 +1,7 @@
 <!--logs.wxml-->
-<view class="container log-list">
-  <block wx:for="{{logs}}" wx:for-item="log" wx:key="*this">
-    <text class="log-item">{{index + 1}}. {{log}}</text>
-  </block>
+<view class="container">
+  <view class="log-item" wx:for="{{logs}}" wx:for-index="city" wx:for-item="weight" wx:key="*this">
+    <view>{{city}}</view>
+    <view>{{weight}}</view>
+  </view>
 </view>
