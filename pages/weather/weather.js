@@ -24,15 +24,21 @@ Page({
     temperature: '',
     imageSrc: '',
     time: '',
-    focus: '',
     color: 'black',
     time: '',
     futureWeather: '',
-    isOpen: false
+    isOpen: false,
+    hotCities: [],
   },
   // Search weather by city name.
   searchWeatherByCity: function(params) {
-    var city = params.detail.value;
+    var city = '';
+    if (params.type == 'tap') {
+      city = params.currentTarget.dataset.hotCity;
+    }
+    else {
+      var city = params.detail.value;
+    }
     var requestUrl = 'https://api.map.baidu.com/telematics/v3/weather?output=json&ak=5827531cbeea4bd3954710471a61eb32&location=' + city;
     var that = this;
     wx.request({
@@ -53,7 +59,8 @@ Page({
             temperature: todayWeather.temperature,
             imageSrc: todayWeather.dayPictureUrl,
             time: time,
-            futureWeather: weatherData
+            futureWeather: weatherData,
+            hotCities: []
           });
           // Storage user search city records.
           storageUserSearchCity(city);
@@ -74,6 +81,11 @@ Page({
       isOpen: isOpen
     })
   },
+  listHotSearchCities: function(event) {
+    this.setData({
+      'hotCities': wx.getStorageSync('cities')
+    });
+  },
   onLoad:function(options){
 
     // 页面初始化 options为页面跳转所带来的参数
@@ -83,9 +95,6 @@ Page({
   },
   onShow:function(){
     // 页面显示
-    this.setData({
-      focus: true
-    });
   },
   onHide:function(){
     // 页面隐藏

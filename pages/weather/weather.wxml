@@ -5,8 +5,11 @@
       <image class="search-icon-image" mode="center" src="../../images/icons/search-icon.png"></image>
     </view>
     <view class="search-input">
-      <input style="color:{{color}}" class="input-city" focus="{{focus}}" type="text" confirm-type="search" placeholder="请输入城市" placeholder-class="input-placeholder" bindconfirm="searchWeatherByCity" value="{{cityValue}}"/>
+      <input style="color:{{color}}" class="input-city" focus="{{focus}}" type="text" confirm-type="search" placeholder="请输入城市" placeholder-class="input-placeholder" bindconfirm="searchWeatherByCity" value="{{cityValue}}" bindtouchstart="listHotSearchCities"/>
     </view>
+  </view>
+  <view class="hot-search-cities-list">
+    <view class="hot-city" wx:for="{{hotCities}}" wx:key="unique" wx:for-index="hotCity" bindtap="searchWeatherByCity" data-hot-city="{{hotCity}}">{{hotCity}}</view>
   </view>
   <view class="weather">
     <view class="today-weather {{isOpen ? 'today-show' : ''}}" bindtap="toggleFuture">
