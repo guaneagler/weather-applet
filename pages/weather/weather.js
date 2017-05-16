@@ -55,7 +55,8 @@ Page({
           var date = new Date();
           var time = (date.getHours() < 10 ? '0' : '') + date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
           that.setData({
-            city: responseData.currentCity,
+            city: city,
+            cityValue: city,
             temperature: todayWeather.temperature,
             imageSrc: todayWeather.dayPictureUrl,
             time: time,
