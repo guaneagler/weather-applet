@@ -18,11 +18,6 @@
       "iconPath": "images/icons/footer-menu-icon.png",
       "selectedIconPath": "images/icons/footer-menu-icon.png"
     }, {
-      "pagePath": "pages/index/index",
-      "text": "我的",
-      "iconPath": "images/icons/footer-menu-icon.png",
-      "selectedIconPath": "images/icons/footer-menu-icon.png"
-    }, {
       "pagePath": "pages/logs/logs",
       "text": "日志",
       "iconPath": "images/icons/footer-menu-icon.png",
